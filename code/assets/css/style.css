@@ -1,0 +1,73 @@
+:root {
+    /* BLACK/WHITE COLORS */
+    --white: #ffffff;
+    --whiteblue: aliceblue;
+    --grey: #5d6367;
+    --black: #272b2d;
+    --customgrey: #334155;
+    --lightgrey: #d1d1d1;
+  
+    /* COLORFULL COLORS */
+    --lightpurple: #d940ff;
+    --purple: #951fb3;
+    --lightblue: #4489d8;
+    --blue: #255b98;
+  
+    --custom_lightblue: #5ca1f0;
+    --custom_blue: #1665c0;
+  
+    /* RGBA COLORS */
+    --rgba_grey: #d3d3d37e;
+    --rgba_black: #00132cce;
+    --rgba_darkblue: #1d1e2ead;
+  
+    /* FONT SIZES */
+    --200px: 200px;
+    --100px: 100px;
+    --70px: 70px;
+    --50px: 50px;
+    --35px: 35px;
+    --30px: 30px;
+    --25px: 25px;
+    --20px: 20px;
+    --16px: 16px;
+    --15px: 15px;
+    --13px: 13px;
+    --12px: 12px;
+  }
+
+
+body {
+    font-family: "sohne-var","Helvetica Neue","Arial",sans-serif;
+    box-sizing: border-box;
+    background-color: var(--white);
+    font-weight: 500;
+    overflow: scroll;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .container {
+    max-width: 1080px;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .project_box{
+    border: 2px solid var(--black);
+    width: 100%;
+  }
+  .searchbar {
+    height: 100px;
+}
+  .searchbar form {
+        text-align: center;
+  }
+  .searchbar .search{
+    width: 30%;
+    border: 2px solid var(--black);
+  }
+  .searchbar input{
+    height: 20px;
+}

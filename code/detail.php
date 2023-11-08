@@ -7,12 +7,13 @@
   <title>Document</title>
 </head>
 <body>
+<div class="container">
 <?php
 include 'dbconn.php';
 
 try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT project_id, project_name, project_about_long FROM projects WHERE project_id = ". $_GET['project']);
+    $stmt = $conn->prepare("SELECT project_id, project_name, type_project, project_about_long, project_link, github_link FROM projects WHERE project_id = ". $_GET['project']);
     $stmt->execute();
 
     // set the resulting array to associative
@@ -20,8 +21,13 @@ try {
     foreach ($stmt->fetchAll() as $k => $v) {
         echo $v['project_id'] . ": ";
         echo $v['project_name'];
+        echo $v['type_project'];
         echo " - " . $v['project_about_long'];
+        echo $v['project_link'] . " ";
+        echo $v['github_link'] . " ";
+
         echo "<br>";
+
     }
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
@@ -31,5 +37,6 @@ $conn = null;
 
 
 ?>
+</div>
 </body>
 </html>
