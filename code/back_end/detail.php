@@ -9,7 +9,7 @@
 <body>
 <div class="container">
 <?php
-include 'dbconn.php';
+include '../dbconn.php';
 
 try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

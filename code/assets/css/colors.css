@@ -1,0 +1,48 @@
+/* PLACE COLORS HERE */
+:root {
+    --aliceblue: aliceblue;
+    --white: #ffffff;
+    --gray: #8080808f;
+    --black: #000000;
+    --red: #ff0000;
+    --orange: #fca500;
+    --green: #008000;
+    --blue: #3f4591;
+    --shadow: #0031ff73; /* box shadow */
+
+    /* BLACK/WHITE COLORS */
+        --white: #ffffff;
+        --whiteblue: aliceblue;
+        --grey: #5d6367;
+        --black: #272b2d;
+        --customgrey: #334155;
+        --lightgrey: #d1d1d1;
+      
+        /* COLORFULL COLORS */
+        --lightpurple: #d940ff;
+        --purple: #951fb3;
+        --lightblue: #4489d8;
+        --blue: #255b98;
+      
+        --custom_lightblue: #5ca1f0;
+        --custom_blue: #1665c0;
+      
+        /* RGBA COLORS */
+        --rgba_grey: #d3d3d37e;
+        --rgba_black: #00132cce;
+        --rgba_darkblue: #1d1e2ead;
+      
+        /* FONT SIZES */
+        --200px: 200px;
+        --100px: 100px;
+        --70px: 70px;
+        --50px: 50px;
+        --35px: 35px;
+        --30px: 30px;
+        --25px: 25px;
+        --20px: 20px;
+        --16px: 16px;
+        --15px: 15px;
+        --13px: 13px;
+        --12px: 12px;
+      }

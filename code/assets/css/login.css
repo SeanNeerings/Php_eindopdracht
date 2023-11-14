@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+@import url(colors.css);
+
+/* Login pagina css */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--aliceblue);
+}
+
+.form-container > h2 {
+  text-align: center;
+  /* color: var(--blue); */
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  background-color: var(--white);
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 5px 14px -2px var(--shadow);
+  box-shadow: 0px 5px 14px -2px var(--shadow);
+  padding: 2vw 5vw 5vw 5vw;
+  width: 50vw;
+  max-width: 500px;
+}
+
+form h3 {
+  color: var(--blue);
+}
+
+form label {
+  font-size: 12px;
+  color: var(--blue);
+  font-weight: 1000;
+}
+
+form input[type="submit"] {
+  background-color: var(--blue);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  padding: 5px 0;
+  margin-top: 10px;
+}
+
+form input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+input::placeholder {
+  font-size: 15px;
+}
+
+.password-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+form > a {
+  font-size: 12px;
+  text-align: center;
+}
+
+form > .checkbox {
+  display: flex;
+  justify-content: flex-start;
+}
+form > .checkbox > span {
+  font-size: 12px;
+}
+
+form > input {
+  font-size: 18px;
+}

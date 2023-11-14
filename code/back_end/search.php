@@ -1,5 +1,4 @@
 <?php
-include 'dbconn.php';
 
 $queryCondition = " WHERE ";
 $conditions = array();
