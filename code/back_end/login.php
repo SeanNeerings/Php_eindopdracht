@@ -1,9 +1,6 @@
 <?php
 include "../dbconn.php";
 
-
-
-
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: ../index.php");
     exit();
@@ -28,44 +25,44 @@ function validate($data)
 }
 
 $email = validate($_POST['email']);
-$pass = validate($_POST['password']);
+$password = $_POST['password'];
 
-if (!$conn) {
-    echo "Connection failure";
-    exit();
-}
-$query = "SELECT `admin_user_id`, `password` FROM admin_user WHERE email = '$email'";
+$query = "SELECT `admin_user_id`, `password` FROM admin_user WHERE email = ?";
+$stmt = $conn->prepare($query);
+$stmt->execute([$email]);
+$userData = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$sql = $conn->query($query);
-$rowcount = $sql->rowCount();
-
-if ($rowcount !== 1) {
+if (!$userData) {
     header("Location: ../index.php?error=no user found");
     exit();
 }
 
-$uInfo = $sql->fetch(PDO::FETCH_ASSOC);
-if (!password_verify($pass, $uInfo['password'])) {
-    header("Location: ../index.php?error=password is not correct");
+$storedPassword = $userData['password'];
+
+// Check the password and update if necessary
+if (password_verify($password, $storedPassword)) {
+    // Passwords match, no need to update
+    session_start();
+    $_SESSION['loggedin'] = true;
+    $_SESSION['admin_user_id'] = $userData['admin_user_id'];
+
+    header("Location: ../pages/project.php");
+    exit();
+} else {
+    // Passwords do not match, update the stored password hash
+    $newHash = password_hash($password, PASSWORD_DEFAULT);
+    
+    // Update the password hash in the database for the specific user
+    $updateQuery = "UPDATE admin_user SET password = ? WHERE email = ?";
+    $updateStmt = $conn->prepare($updateQuery);
+    $updateStmt->execute([$newHash, $email]);
+
+    // Start session and redirect after updating password
+    session_start();
+    $_SESSION['loggedin'] = true;
+    $_SESSION['admin_user_id'] = $userData['admin_user_id'];
+
+    header("Location: ../pages/project.php");
     exit();
 }
-
-session_start();
-$_SESSION['loggedin'] = true;
-$_SESSION['admin_user_id'] = $uInfo['admin_user_id'];
-
-function RandomString()
-{
-    $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $randstring = '';
-    for ($i = 0; $i < 32; $i++) {
-        $randstring .= $characters[rand(0, (strlen($characters) - 1))];
-    }
-    return $randstring;
-}
-
-$conn = null;
-
-header("Location: ../pages/project.php ");
-exit();
 ?>

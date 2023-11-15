@@ -1,38 +1,109 @@
-@import url(colors.css);
-
-
-
-body {
-    font-family: "sohne-var","Helvetica Neue","Arial",sans-serif;
-    box-sizing: border-box;
-    background-color: var(--white);
-    font-weight: 500;
-    overflow: scroll;
-  }
-  
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  .container {
-    max-width: 1080px;
-    width: 80%;
-    margin: 0 auto;
-  }
-  .project_box{
-    border: 2px solid var(--black);
-    width: 100%;
-  }
-  .searchbar {
-    height: 100px;
+/* Resetting default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-  .searchbar form {
-        text-align: center;
-  }
-  .searchbar .search{
-    width: 30%;
-    border: 2px solid var(--black);
-  }
-  .searchbar input{
-    height: 20px;
+
+/* Body styles */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  line-height: 1.6;
+}
+
+/* Container styles */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Search bar styles */
+.searchbar {
+  margin-bottom: 20px;
+}
+.searchbar form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchbar .search {
+  width: 70%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+.searchbar input[type="submit"] {
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.searchbar input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Filter styles */
+.filter {
+  margin-bottom: 20px;
+}
+.filter label {
+  margin-right: 10px;
+}
+.filter select {
+  padding: 8px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Project box styles */
+.project_box {
+  border: 2px solid #000;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.project_box a {
+  text-decoration: none;
+  color: #000;
+}
+.project_box h1 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+.project_box p {
+  margin-bottom: 5px;
+}
+
+/* Pagination styles */
+.pagination {
+  margin-top: 20px;
+}
+.pagination a {
+  padding: 5px 10px;
+  margin-right: 5px;
+  text-decoration: none;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+.pagination a:hover {
+  background-color: #f0f0f0;
+}
+.button a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #dc3545;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.button a:hover {
+  background-color: #c82333;
 }
