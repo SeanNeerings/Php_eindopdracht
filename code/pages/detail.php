@@ -17,19 +17,22 @@
         if (isset($_GET['project']) && is_numeric($_GET['project'])) {
             $project_id = $_GET['project'];
 
-            $stmt = $conn->prepare("SELECT project_id, project_name, type_project, project_about_long, project_link, github_link FROM projects WHERE project_id = :project_id");
+            $stmt = $conn->prepare("SELECT project_id, project_name, type_project, project_about_long, project_link, github_link, image_uuid FROM projects WHERE project_id = :project_id");
             $stmt->bindParam(':project_id', $project_id, PDO::PARAM_INT);
             $stmt->execute();
 
-            // Fetch the project details
             $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
             foreach ($stmt->fetchAll() as $project) {
                 echo "<h1>{$project['project_name']}</h1>";
                 echo "<div class='project-details'>";
+                // Adjust the path and concatenate the UUID with the file extension
+                $imagePath = "../assets/images/{$project['image_uuid']}.jpg"; // Change '.jpg' to your image extension
+                echo "<img src='{$imagePath}' alt='{$project['project_name']}' class='project-image'>";
                 echo "<p>Type: {$project['type_project']}</p>";
                 echo "<p>Description: {$project['project_about_long']}</p>";
                 echo "<p>Project Link: <a href='{$project['project_link']}' target='_blank'>{$project['project_link']}</a></p>";
                 echo "<p>Github Link: <a href='{$project['github_link']}' target='_blank'>{$project['github_link']}</a></p>";
+                echo "<a href='project.php' class='back-button'>Back</a>";
                 echo "</div>";
             }
         } else {

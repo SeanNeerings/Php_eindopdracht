@@ -39,9 +39,7 @@ if (!$userData) {
 
 $storedPassword = $userData['password'];
 
-// Check the password and update if necessary
 if (password_verify($password, $storedPassword)) {
-    // Passwords match, no need to update
     session_start();
     $_SESSION['loggedin'] = true;
     $_SESSION['admin_user_id'] = $userData['admin_user_id'];
@@ -49,15 +47,12 @@ if (password_verify($password, $storedPassword)) {
     header("Location: ../pages/project.php");
     exit();
 } else {
-    // Passwords do not match, update the stored password hash
     $newHash = password_hash($password, PASSWORD_DEFAULT);
     
-    // Update the password hash in the database for the specific user
     $updateQuery = "UPDATE admin_user SET password = ? WHERE email = ?";
     $updateStmt = $conn->prepare($updateQuery);
     $updateStmt->execute([$newHash, $email]);
 
-    // Start session and redirect after updating password
     session_start();
     $_SESSION['loggedin'] = true;
     $_SESSION['admin_user_id'] = $userData['admin_user_id'];
