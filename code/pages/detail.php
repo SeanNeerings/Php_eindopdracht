@@ -25,8 +25,7 @@
             foreach ($stmt->fetchAll() as $project) {
                 echo "<h1>{$project['project_name']}</h1>";
                 echo "<div class='project-details'>";
-                // Adjust the path and concatenate the UUID with the file extension
-                $imagePath = "../assets/images/{$project['image_uuid']}.jpg"; // Change '.jpg' to your image extension
+                $imagePath = "../assets/images/{$project['image_uuid']}.jpg"; 
                 echo "<img src='{$imagePath}' alt='{$project['project_name']}' class='project-image'>";
                 echo "<p>Type: {$project['type_project']}</p>";
                 echo "<p>Description: {$project['project_about_long']}</p>";

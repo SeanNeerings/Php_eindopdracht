@@ -22,7 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['project_id'])) {
             exit();
         }
 
-        // Display the form for editing with existing project details
         ?>
         <!DOCTYPE html>
         <html lang="en">
